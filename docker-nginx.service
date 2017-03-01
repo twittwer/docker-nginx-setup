@@ -1,0 +1,13 @@
+[Unit]
+Description=Nginx container environment
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+Type=forking
+ExecStart=/bin/bash /etc/docker-nginx/docker-nginx.sh
+ExecStop=/bin/echo 'Nginx container environment should stop'
+
+[Install]
+WantedBy=default.target
