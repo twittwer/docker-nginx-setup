@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# service script dir: /etc/docker-nginx/docker-nginx.sh
-
-/bin/echo 'Nginx container environment starting...'
-
 /usr/bin/docker run -d -p 80:80 -p 443:443 \
         --name nginx \
         -v /etc/nginx/conf.d  \
@@ -27,5 +23,3 @@
         -v /etc/docker-nginx/certs:/etc/nginx/certs:rw \
         -v /var/run/docker.sock:/var/run/docker.sock:ro \
         jrcs/letsencrypt-nginx-proxy-companion
-
-/bin/echo 'Nginx container environment started'
