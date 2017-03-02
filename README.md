@@ -1,4 +1,4 @@
-# Docker Nginx Environment
+# Docker Nginx Setup
 
 ## Setup
 - copy docker-nginx directory to /etc/
