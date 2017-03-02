@@ -7,6 +7,7 @@
 /etc/docker-nginx
   |-certs
   |  \-{empty directory}
+  |-docker-nginx.sh
   \-nginx.tmpl
 ```
 - copy docker-nginx.service to /etc/systemd/system/
@@ -30,3 +31,6 @@ docker run -d \
 ```
 - for test cases you can add `-e "LETSENCRYPT_TEST=true" \` to get a self signed certificate
   - useful to work around the 5 certs/week/domain limits of Let's Encrypt
+
+## WARNING
+- service stop is currently not implemented
