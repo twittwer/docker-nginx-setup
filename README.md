@@ -1,5 +1,8 @@
 # Docker Nginx Setup
 
+__Prerequisites__
+- [Docker Engine](https://github.com/twittwer/docker-nginx-setup/blob/master/docker-setup.md#docker-engine)
+
 ## Setup
 - copy docker-nginx directory to /etc/
   - make sure it looks like this:
