@@ -4,11 +4,11 @@ Requires=docker.service
 After=docker.service
 
 [Service]
-Restart=always
 Type=forking
 RemainAfterExit=yes
-ExecStart=/bin/bash /etc/docker-nginx/docker-nginx-start.sh
-ExecStop=/bin/bash /etc/docker-nginx/docker-nginx-stop.sh
+Restart=always
+ExecStart=/bin/bash /etc/docker-nginx/docker-nginx.sh start
+ExecStop=/bin/bash /etc/docker-nginx/docker-nginx.sh stop
 
 [Install]
 WantedBy=default.target
