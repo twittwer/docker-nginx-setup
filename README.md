@@ -4,8 +4,14 @@ __Prerequisites__
 - [Docker Engine](https://github.com/twittwer/docker-nginx-setup/blob/master/docker-setup.md#docker-engine)
 
 ## Setup
-- copy docker-nginx directory to /etc/
-  - make sure it looks like this:
+
+__Scripted__
+- run install script with root privileges  
+  - `sudo ./install.sh`
+
+__Manual__
+- copy docker-nginx directory to /etc/  
+  - make sure it looks like this:  
 ```
 /etc/docker-nginx
   |-certs
@@ -14,16 +20,18 @@ __Prerequisites__
   \-nginx.tmpl
 ```
 - copy docker-nginx.service to /etc/systemd/system/
-- reload sytemd
+- reload sytemd  
   - `systemctl daemon-reload`
-- test service
+- test service  
   - `systemctl start docker-nginx.service`
   - `docker ps -a -f name=nginx` - should list 3 running containers
-- enable service for autostart
+- enable service for autostart  
   - `systemctl enable docker-nginx.service`
 
 ## Usage
-- start a reachabel container
+- start/stop the containers  
+  - `systemctl (start|stop) docker-nginx.service`
+- start a reachabel container  
 ```
 docker run -d \
   --name whoami-sample \
@@ -33,10 +41,7 @@ docker run -d \
   jwilder/whoami
 ```
 - for test cases you can add `-e "LETSENCRYPT_TEST=true" \` to get a self signed certificate
-  - useful to work around the 5 certs/week/domain limits of Let's Encrypt
-
-## WARNING
-- service stop is currently not implemented
+  - useful to work around the [certs/week limits](https://letsencrypt.org/docs/rate-limits/) of Let's Encrypt
 
 ***
 #### Credits
