@@ -1,7 +1,10 @@
 # Docker Nginx Setup
 
 __Prerequisites__
-- [Docker Engine](https://github.com/twittwer/docker-nginx-setup/blob/master/docker-setup.md#docker-engine)
+- Docker Engine
+  - if not installed, then run install script with root privileges  
+    - `sudo ./install-docker-with-compose.sh`
+    - (will install latest docker engine and docker-compose 1.11.2)
 
 ## Setup
 
@@ -10,7 +13,7 @@ __Scripted__
   - `sudo ./install.sh`
 
 __Manual__
-- copy docker-nginx directory to /etc/  
+- copy docker-nginx directory to /etc/
   - make sure it looks like this:  
 ```
 /etc/docker-nginx
@@ -25,6 +28,7 @@ __Manual__
 - test service  
   - `systemctl start docker-nginx.service`
   - `docker ps -a -f name=nginx` - should list 3 running containers
+  - *for debugging look at* `systemctl status docker-nginx.service`
 - enable service for autostart  
   - `systemctl enable docker-nginx.service`
 
