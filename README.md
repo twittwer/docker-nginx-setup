@@ -28,7 +28,7 @@ __Manual__
 - test service  
   - `systemctl start docker-nginx.service`
   - `docker ps -a -f name=nginx` - should list 3 running containers
-  - *for debugging look at* `systemctl status docker-nginx.service`
+  - *for potential debugging look at* `systemctl status docker-nginx.service`
 - enable service for autostart  
   - `systemctl enable docker-nginx.service`
 
@@ -49,6 +49,5 @@ docker run -d \
 
 ***
 #### Credits
-- https://github.com/jwilder/nginx-proxy
-  - https://github.com/jwilder/docker-gen
-- https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion
+- [jwilder/nginx-proxy (separate container setup)](https://github.com/jwilder/nginx-proxy#separate-containers)
+- [JrCs/docker-letsencrypt-nginx-proxy-companion](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion)
