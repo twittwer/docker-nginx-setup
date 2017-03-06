@@ -44,7 +44,8 @@ docker run -d \
   -e "LETSENCRYPT_EMAIL=admin@sample.eu" \
   jwilder/whoami
 ```
-- for test cases you can add `-e "LETSENCRYPT_TEST=true" \` to get a self signed certificate
+- to enable CORS-Requests add `-e "ALLOW_CORS=true" \ `
+- for test cases add `-e "LETSENCRYPT_TEST=true" \ ` to get a self signed certificate
   - useful to work around the [certs/week limits](https://letsencrypt.org/docs/rate-limits/) of Let's Encrypt
 
 ***

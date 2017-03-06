@@ -198,6 +198,12 @@ server {
 	include /etc/nginx/vhost.d/default;
 	{{ end }}
 
+  {{ range $container := $containers }}
+      {{ if $container.Env.ALLOW_CORS }}
+          include cors_support;
+      {{ end }}
+  {{ end }}
+
 	location / {
 		{{ if eq $proto "uwsgi" }}
 		include uwsgi_params;

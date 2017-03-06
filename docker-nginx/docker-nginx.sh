@@ -15,6 +15,7 @@ start() {
         --name nginx-gen \
         --volumes-from nginx \
         -v /etc/docker-nginx/nginx.tmpl:/etc/docker-gen/templates/nginx.tmpl:ro \
+        -v /etc/docker-nginx/cors_support:/etc/docker-gen/templates/cors_support:ro \
         -v /var/run/docker.sock:/tmp/docker.sock:ro \
         jwilder/docker-gen \
         -notify-sighup nginx -watch -wait 5s:30s /etc/docker-gen/templates/nginx.tmpl /etc/nginx/conf.d/default.conf
